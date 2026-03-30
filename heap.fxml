@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1550.0" style="-fx-background-color: linear-gradient(to bottom right, #0a0f2c, #121a4a);" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.algoviz.algoviz.Heap_Controller">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         LEFT SIDEBAR
+         ═══════════════════════════════════════════════════════════ -->
+    <StackPane prefHeight="750.0" prefWidth="260.0" style="-fx-background-color: #000118;                       -fx-border-color: rgba(123,47,247,0.4);                       -fx-border-width: 0 2 0 0;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+
+        <VBox alignment="TOP_CENTER" spacing="0">
+
+            <!-- Logo area -->
+            <VBox alignment="CENTER" prefHeight="180" style="-fx-background-color: rgba(123,47,247,0.15);                          -fx-border-color: rgba(123,47,247,0.3);                          -fx-border-width: 0 0 2 0;                          -fx-padding: 20 10 20 10;">
+                <Label style="-fx-font-size: 42px;" text="🔺" />
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 30px;                               -fx-font-weight: bold; -fx-text-fill: #00ff00;" text="HEAP" />
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 15px;                               -fx-font-weight: bold; -fx-text-fill: rgba(0,255,0,0.6);                               -fx-padding: 2 0 0 0;" text="VISUALIZER" />
+            </VBox>
+
+            <!-- Operations label -->
+            <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                           -fx-text-fill: rgba(123,47,247,0.8); -fx-font-weight: bold;                           -fx-padding: 18 0 10 0;" text="OPERATIONS" />
+
+            <!-- Insert button -->
+            <Button fx:id="insertBtn" mnemonicParsing="false" onAction="#onInsertClicked" prefHeight="60" prefWidth="190.0" style="-fx-font-family: Verdana; -fx-font-size: 18px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #00c853, #007a2f);                            -fx-background-radius: 12px; -fx-cursor: hand;                            -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;" text="➕  Insert" />
+            <Region prefHeight="8" />
+
+            <!-- Remove Root button -->
+            <Button fx:id="removeBtn" mnemonicParsing="false" onAction="#onRemoveClicked" prefHeight="60" prefWidth="190.0" style="-fx-font-family: Verdana; -fx-font-size: 18px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #c62828, #b71c1c);                            -fx-background-radius: 12px; -fx-cursor: hand;                            -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;" text="➖  Remove Root" />
+            <Region prefHeight="8" />
+
+            <!-- Get Smallest / Largest button -->
+            <Button fx:id="peekBtn" mnemonicParsing="false" onAction="#onGetSmallestClicked" prefHeight="60" prefWidth="190.0" style="-fx-font-family: Verdana; -fx-font-size: 18px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #f57f17, #e65100);                            -fx-background-radius: 12px; -fx-cursor: hand;                            -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;" text="👁  Peek Root" />
+            <Region prefHeight="8" />
+
+            <!-- Build Heap button -->
+            <Button fx:id="buildHeapBtn" mnemonicParsing="false" onAction="#onBuildHeapClicked" prefHeight="60" prefWidth="190.0" style="-fx-font-family: Verdana; -fx-font-size: 18px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #1565c0, #0d47a1);                            -fx-background-radius: 12px; -fx-cursor: hand;                            -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;" text="🔨  Build Heap" />
+            <Region prefHeight="8" />
+
+            <!-- Clear button -->
+            <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#onClearClicked" prefHeight="60" prefWidth="190.0" style="-fx-font-family: Verdana; -fx-font-size: 18px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #37474f, #263238);                            -fx-background-radius: 12px; -fx-cursor: hand;                            -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20;" text="🗑  Clear" />
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Separator prefWidth="260" style="-fx-background-color: rgba(123,47,247,0.3);" />
+            <Region prefHeight="10" />
+
+            <!-- Home button -->
+            <Button fx:id="home_btn" mnemonicParsing="false" onAction="#onBackClicked" prefHeight="55" prefWidth="150.0" style="-fx-font-family: Verdana; -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: white; -fx-background-color: rgba(123,47,247,0.35); -fx-background-radius: 12px; -fx-cursor: hand; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 20; -fx-border-color: rgba(123,47,247,0.5); -fx-border-radius: 12px; -fx-border-width: 1;" text="🏠  Home" />
+            <Region prefHeight="20" />
+
+        </VBox>
+    </StackPane>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MAIN CONTENT
+         ═══════════════════════════════════════════════════════════ -->
+    <VBox layoutX="261.0" prefHeight="750.0" prefWidth="1290.0" spacing="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="261.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <!-- ── TOP BAR ── -->
+        <HBox alignment="CENTER_LEFT" spacing="14" style="-fx-background-color: #000118;                      -fx-padding: 12 24 12 24;                      -fx-border-color: rgba(123,47,247,0.35);                      -fx-border-width: 0 0 2 0;">
+
+            <!-- Title -->
+            <VBox alignment="CENTER_LEFT" spacing="2">
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 9px;                               -fx-text-fill: rgba(123,47,247,0.7); -fx-font-weight: bold;" text="DATA STRUCTURE" />
+                <Label prefHeight="25.0" prefWidth="356.0" style="-fx-font-family: Verdana; -fx-font-size: 20px;                               -fx-font-weight: bold; -fx-text-fill: #00ff00;" text="Heap  —  Array Representation" />
+            </VBox>
+
+            <Region prefHeight="27.0" prefWidth="110.0" HBox.hgrow="ALWAYS" />
+
+            <!-- Insert value input -->
+            <VBox alignment="CENTER_LEFT" spacing="3">
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 9px;                               -fx-text-fill: rgba(170,170,170,0.8); -fx-font-weight: bold;" text="INSERT VALUE" />
+                <TextField fx:id="valueField" prefHeight="32.0" prefWidth="127.0" promptText="e.g.  42" style="-fx-background-color: #0a1030; -fx-text-fill: white;                                   -fx-prompt-text-fill: #444;                                   -fx-border-color: rgba(123,47,247,0.5);                                   -fx-border-width: 1; -fx-background-radius: 8;                                   -fx-border-radius: 8; -fx-font-family: Verdana;                                   -fx-font-size: 14px; -fx-padding: 6 10 6 10;" />
+            </VBox>
+
+            <!-- Build heap input -->
+            <VBox alignment="CENTER_LEFT" spacing="3">
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 9px;                               -fx-text-fill: rgba(170,170,170,0.8); -fx-font-weight: bold;" text="BUILD HEAP  (comma separated)" />
+                <TextField fx:id="buildField" prefHeight="32.0" prefWidth="221.0" promptText="e.g.  5, 3, 8, 1, 9" style="-fx-background-color: #0a1030; -fx-text-fill: white;                                   -fx-prompt-text-fill: #444;                                   -fx-border-color: rgba(123,47,247,0.5);                                   -fx-border-width: 1; -fx-background-radius: 8;                                   -fx-border-radius: 8; -fx-font-family: Verdana;                                   -fx-font-size: 14px; -fx-padding: 6 10 6 10;" />
+            </VBox>
+
+            <!-- Max size input -->
+            <VBox alignment="CENTER_LEFT" spacing="3">
+                <Label style="-fx-font-family: Verdana; -fx-font-size: 9px;                               -fx-text-fill: rgba(170,170,170,0.8); -fx-font-weight: bold;" text="MAX SIZE" />
+                <TextField fx:id="maxSizeField" prefHeight="32.0" prefWidth="126.0" promptText="e.g.  15" style="-fx-background-color: #0a1030; -fx-text-fill: white;                                   -fx-prompt-text-fill: #444;                                   -fx-border-color: rgba(123,47,247,0.5);                                   -fx-border-width: 1; -fx-background-radius: 8;                                   -fx-border-radius: 8; -fx-font-family: Verdana;                                   -fx-font-size: 14px; -fx-padding: 6 10 6 10;" />
+            </VBox>
+
+            <!-- Set Size button -->
+            <Button onAction="#onSetSizeClicked" prefHeight="40" prefWidth="85" style="-fx-font-family: Verdana; -fx-font-size: 12px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #8e2de2, #4a00e0);                            -fx-background-radius: 10px; -fx-cursor: hand;" text="Set Size" />
+
+            <!-- Min / Max toggle button -->
+            <Button fx:id="toggleBtn" onAction="#onToggleHeapType" prefHeight="40" prefWidth="120" style="-fx-font-family: Verdana; -fx-font-size: 12px;                            -fx-font-weight: bold; -fx-text-fill: white;                            -fx-background-color: linear-gradient(to bottom right, #6a1b9a, #4a148c);                            -fx-background-radius: 10px; -fx-cursor: hand;" text="⇅  Min Heap" />
+
+        </HBox>
+
+        <!-- ── STATUS BAR ── -->
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: rgba(123,47,247,0.1);                      -fx-border-color: rgba(123,47,247,0.25);                      -fx-border-width: 0 0 1 0; -fx-padding: 6 24 6 24;">
+            <Label fx:id="statusDot" style="-fx-text-fill: #555555; -fx-font-size: 10px;" text="●" />
+            <Label fx:id="statusLabel" style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 12px;" text="Enter a value and press ➕ Insert, or use 🔨 Build Heap to load multiple values." />
+        </HBox>
+
+        <!-- ── MAIN BODY ── -->
+        <HBox spacing="0" VBox.vgrow="ALWAYS">
+
+            <!-- Heap array canvas -->
+            <Pane fx:id="heapVisualPane" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" />
+
+            <!-- Right info panel -->
+            <VBox prefWidth="260" spacing="0" style="-fx-background-color: #000118;                          -fx-border-color: rgba(123,47,247,0.3);                          -fx-border-width: 0 0 0 2;">
+
+                <!-- Heap info section -->
+                <VBox spacing="14" style="-fx-padding: 20 18 20 18;                              -fx-border-color: rgba(123,47,247,0.2);                              -fx-border-width: 0 0 1 0;">
+
+                    <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                                   -fx-font-weight: bold;                                   -fx-text-fill: rgba(123,47,247,0.8);" text="HEAP INFO" />
+
+                    <!-- Type -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Type :" />
+                        <Label fx:id="typeLabel" style="-fx-text-fill: #ce93d8; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="Min Heap" />
+                    </HBox>
+
+                    <!-- Size -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Size :" />
+                        <Label fx:id="sizeLabel" style="-fx-text-fill: #00ff00; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="0" />
+                    </HBox>
+
+                    <!-- Capacity -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Capacity :" />
+                        <Label fx:id="capacityLabel" style="-fx-text-fill: #00ff00; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="15" />
+                    </HBox>
+
+                    <!-- Root value -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Root :" />
+                        <Label fx:id="rootLabel" style="-fx-text-fill: #FFD54F; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="—" />
+                    </HBox>
+
+                    <!-- isEmpty -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Empty :" />
+                        <Label fx:id="isEmptyLabel" style="-fx-text-fill: #4FC3F7; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="true" />
+                    </HBox>
+
+                    <!-- isFull -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label style="-fx-text-fill: #aaaaaa; -fx-font-family: Verdana; -fx-font-size: 13px;" text="Full :" />
+                        <Label fx:id="isFullLabel" style="-fx-text-fill: #4FC3F7; -fx-font-family: Verdana;                                       -fx-font-size: 13px; -fx-font-weight: bold;" text="false" />
+                    </HBox>
+
+                    <!-- Parent formula reminder -->
+                    <VBox spacing="4" style="-fx-background-color: rgba(123,47,247,0.1);                                  -fx-background-radius: 6; -fx-padding: 8 10 8 10;">
+                        <Label style="-fx-font-family: Verdana; -fx-font-size: 9px;                                       -fx-text-fill: rgba(123,47,247,0.8); -fx-font-weight: bold;" text="INDEX FORMULAS" />
+                        <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                                       -fx-text-fill: #aaaaaa;" text="Parent   = (i-1) / 2" />
+                        <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                                       -fx-text-fill: #aaaaaa;" text="Left     = 2*i + 1" />
+                        <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                                       -fx-text-fill: #aaaaaa;" text="Right    = 2*i + 2" />
+                    </VBox>
+
+                </VBox>
+
+                <!-- Operation log -->
+                <VBox spacing="10" style="-fx-padding: 16 18 16 18;" VBox.vgrow="ALWAYS">
+
+                    <Label style="-fx-font-family: Verdana; -fx-font-size: 11px;                                   -fx-font-weight: bold;                                   -fx-text-fill: rgba(123,47,247,0.8);" text="OPERATION LOG" />
+
+                    <ListView fx:id="operationLog" style="-fx-background-color: #0a0f2c;                                      -fx-border-color: rgba(123,47,247,0.3);                                      -fx-border-width: 1; -fx-background-radius: 8;                                      -fx-border-radius: 8;                                      -fx-control-inner-background: #0a0f2c;" VBox.vgrow="ALWAYS" />
+                </VBox>
+
+            </VBox>
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>
